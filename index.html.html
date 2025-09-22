@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNS Holidays - Where Every Journey Begins with a Smile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            flex-shrink: 0;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - Fixed */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .logo-section img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .company-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .company-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-container {
+            display: flex;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 5px;
+            border: 2px solid rgba(255,255,255,0.3);
+            min-width: 250px;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            outline: none;
+            width: 200px;
+            font-size: 1rem;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .search-btn {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Promotional Slider */
+        .promo-slider {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .promo-text {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #059669 50%, #0ea5e9 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+        }
+
+        /* Get in Touch Tab */
+        .get-in-touch-tab {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #1e40af, #059669);
+            color: white;
+            border: none;
+            padding: 20px 8px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+            z-index: 999;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .get-in-touch-tab:hover {
+            background: linear-gradient(135deg, #2563eb, #10b981);
+            transform: translateY(-50%) translateX(5px);
+        }
+
+        /* Contact Popup Modal */
+        .contact-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-popup-overlay.show {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-popup {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-popup-overlay.show .contact-popup {
+            transform: scale(1);
+        }
+
+        .contact-popup-header {
+            background: linear-gradient(135deg, #1e40af, #059669);
+            color: white;
+            padding: 25px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-popup-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-popup-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .contact-popup-body {
+            padding: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1e40af, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .contact-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .contact-card a {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .popup-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .popup-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .popup-social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-facebook { background: #1877f2; }
+        .social-youtube { background: #ff0000; }
+        .social-linkedin { background: #0a66c2; }
+        .social-instagram { background: #e4405f; }
+
+        /* Explore Destinations Section */
+        .region-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .region-tab {
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .region-tab.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .explore-slider-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 60px;
+        }
+
+        .explore-cards-wrapper {
+            overflow: hidden;
+        }
+
+        .explore-cards {
+            display: flex;
+            gap: 25px;
+            transition: transform 0.3s ease;
+            padding: 20px 0;
+        }
+
+        .explore-card {
+            flex: 0 0 320px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .explore-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .explore-image-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .explore-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-card:hover .explore-image {
+            transform: scale(1.05);
+        }
+
+        .explore-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .explore-wishlist:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .explore-content {
+            padding: 20px;
+        }
+
+        .explore-rating {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .explore-stars {
+            color: #ffc107;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .explore-reviews {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+
+        .explore-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .explore-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .explore-features {
+            margin-bottom: 15px;
+        }
+
+        .explore-feature-badge {
+            background: #17a2b8;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .explore-details {
+            margin-bottom: 20px;
+        }
+
+        .explore-detail-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            align-items: center;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .detail-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .explore-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .explore-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .explore-btn-outline {
+            background: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .explore-btn-outline:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .explore-btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+        }
+
+        .explore-btn-primary:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            transform: translateY(-1px);
+        }
+
+        .explore-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #dee2e6;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .explore-nav:hover {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            color: #007bff;
+        }
+
+        .explore-prev {
+            left: 10px;
+        }
+
+        .explore-next {
+            right: 10px;
+        }
+
+        /* Trending Destinations Section */
+        .trending-slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .trending-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .trending-slide {
+            min-width: 100%;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .trending-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .trending-slide-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .trending-slide-content h3 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .trending-slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .trending-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .trending-slider-nav:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .trending-prev { left: 20px; }
+        .trending-next { right: 20px; }
+
+        .trending-slider-dots {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .trending-dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .trending-dot.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+
+        /* Services Section */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #7f8c8d;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #1e40af, #059669);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-header-image {
+            transform: scale(1.05);
+        }
+
+        .service-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(5, 150, 105, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .service-header-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .service-header-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .service-card-body {
+            padding: 25px;
+        }
+
+        .service-card-body p {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .service-card-body strong {
+            color: #2c3e50;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            flex: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .callback-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            flex: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover, .callback-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer-main {
+            flex-shrink: 0;
+            background: #1a2332;
+            color: white;
+            padding: 50px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-company {
+            padding-right: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .footer-logo-text h3 {
+            color: #f59e0b;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo-text p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .footer-description {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .footer-column h4 {
+            color: #f59e0b;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #f59e0b;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: #f59e0b;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .company-address {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .company-address h5 {
+            color: #f59e0b;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .company-address p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .footer-disclaimer {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .footer-disclaimer h5 {
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+
+        .footer-disclaimer p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .footer-bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+        }
+
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links-bottom a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .payment-security {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .security-badge {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #1e40af;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .bottom-banner {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(45deg, #1e40af, #f59e0b);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .bottom-banner p {
+            color: white;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .bottom-banner a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .breaking-news {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-right {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .search-container {
+                max-width: 300px;
+                min-width: auto;
+            }
+
+            .search-input {
+                width: 180px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+    <!-- Get in Touch Tab -->
+    <button class="get-in-touch-tab" onclick="openContactPopup()">GET IN TOUCH</button>
+
+    <!-- Contact Popup Modal -->
+    <div class="contact-popup-overlay" id="contactPopupOverlay" onclick="closeContactPopup()">
+        <div class="contact-popup" onclick="event.stopPropagation()">
+            <div class="contact-popup-header">
+                <h3>Get In Touch</h3>
+                <button class="contact-popup-close" onclick="closeContactPopup()">&times;</button>
+            </div>
+            <div class="contact-popup-body">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📞</div>
+                        <h4>Call us</h4>
+                        <p>Request a quote or chat - we're here to help anytime!</p>
+                        <a href="tel:+917066630228">+91 7066630228</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">✉️</div>
+                        <h4>Write to us</h4>
+                        <p>We're always happy to help!</p>
+                        <p>For Feedback: <a href="mailto:feedback@bnsholidays.co.in">feedback@bnsholidays.co.in</a></p>
+                        <p>For Enquiries: <a href="mailto:bnsholidays@bnsholidays.co.in">bnsholidays@bnsholidays.co.in</a></p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">🏢</div>
+                        <h4>Our Offices</h4>
+                        <p>Located in Pune, ready to plan your dream vacation today!</p>
+                        <p>📍 Office No 7, Sai Saiee Apartment, New Sangvi, Pune - 411027</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">🌐</div>
+                        <h4>Connect with us</h4>
+                        <p>Reviews, podcasts, blogs and more...</p>
+                        <div class="popup-social-links">
+                            <a href="#" class="popup-social-link social-facebook">f</a>
+                            <a href="#" class="popup-social-link social-youtube">▶</a>
+                            <a href="#" class="popup-social-link social-linkedin">in</a>
+                            <a href="#" class="popup-social-link social-instagram">📷</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="images/bns-logo.png" alt="BNS Holidays Logo" onerror="this.style.display='none'">
+                    <div class="company-info">
+                        <h1>BNS HOLIDAYS</h1>
+                        <p>Where Every Journey Begins with a Smile</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search destinations, services..." class="search-input">
+                        <button onclick="performSearch()" class="search-btn">🔍</button>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#explore">Explore</a></li>
+                            <li><a href="#trending">Trending</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    <!-- Promotional Slider -->
+    <div class="promo-slider">
+        <div class="promo-text">
+            🎉 Special 15% OFF on International Packages | ✈️ Free Visa Consultation | 🏨 Luxury Hotel Upgrades Available | 📞 24/7 Customer Support: +91 7066630228 | 🎁 Honeymoon Special Packages | 🌟 3+ Years Experience | 1000+ Happy Clients
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Plan Your Dream Trip</h2>
+            <p>Discover Amazing Destinations with BNS Holidays</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Customized Packages</h3>
+                    <p>Tailored travel experiences designed just for you</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3>Best Prices Guaranteed</h3>
+                    <p>Unbeatable prices with no hidden costs</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛂</span>
+                    <h3>Complete Visa Support</h3>
+                    <p>End-to-end visa assistance for 150+ countries</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>24/7 Customer Care</h3>
+                    <p>Round-the-clock support for all your travel needs</p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Custom Quote</a>
+                <a href="#services" class="btn btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Destinations Section -->
+    <section class="section" id="explore">
+        <div class="container">
+            <h2 class="section-title">Explore Amazing Destinations</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #6c757d; margin-bottom: 40px;">
+                Handpicked destinations from around the world, curated specially for your perfect getaway
+            </p>
+            
+            <!-- Region Filter Tabs -->
+            <div class="region-tabs">
+                <button class="region-tab active" onclick="filterExploreRegion('europe')">Europe</button>
+                <button class="region-tab" onclick="filterExploreRegion('asia')">Australia & New Zealand</button>
+                <button class="region-tab" onclick="filterExploreRegion('japan')">Japan</button>
+                <button class="region-tab" onclick="filterExploreRegion('africa')">Africa</button>
+                <button class="region-tab" onclick="filterExploreRegion('southeast')">Southeast Asia</button>
+            </div>
+
+            <!-- Horizontal Scrolling Destination Cards -->
+            <div class="explore-slider-container">
+                <button class="explore-nav explore-prev" onclick="scrollExploreCards(-1)">‹</button>
+                <div class="explore-cards-wrapper" id="exploreCardsWrapper">
+                    <div class="explore-cards">
+                        <!-- European Destinations -->
+                        <div class="explore-card" data-region="europe">
+                            <div class="explore-badge">POPULAR</div>
+                            <div class="explore-image-container">
+                                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=200&fit=crop" alt="European Splendours" class="explore-image">
+                                <div class="explore-wishlist">♡</div>
+                            </div>
+                            <div class="explore-content">
+                                <div class="explore-rating">
+                                    <span class="explore-stars">★★★★★</span>
+                                    <span class="explore-reviews">40 Reviews</span>
+                                </div>
+                                <h3 class="explore-title">European Splendours</h3>
+                                <p class="explore-description">Explore the magnificent castles, historic cities, and breathtaking landscapes across 10 European countries.</p>
+                                <div class="explore-features">
+                                    <span class="explore-feature-badge">🏨 All Inclusive</span>
+                                    <span class="explore-feature-badge">🚌 Transport</span>
+                                </div>
+                                <div class="explore-details">
+                                    <div class="explore-detail-row">
+                                        <span class="detail-label">Duration</span>
+                                        <span class="detail-value">10 Days</span>
+                                        <span class="detail-label">Countries</span>
+                                        <span class="detail-value">10</span>
+                                        <span class="detail-label">Cities</span>
+                                        <span class="detail-value">16</span>
+                                    </div>
+                                </div>
+                                <div class="explore-actions">
+                                    <a href="#contact" class="explore-btn explore-btn-outline">View Details</a>
+                                    <a href="#contact" class="explore-btn explore-btn-primary">Enquire Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="explore-card" data-region="europe">
+                            <div class="explore-badge">RECOMMENDED</div>
+                            <div class="explore-image-container">
+                                <img src="https://images.unsplash.com/photo-1520986606214-8b456906c813?w=400&h=200&fit=crop" alt="European Panorama" class="explore-image">
+                                <div class="explore-wishlist">♡</div>
+                            </div>
+                            <div class="explore-content">
+                                <div class="explore-rating">
+                                    <span class="explore-stars">★★★★★</span>
+                                    <span class="explore-reviews">22 Reviews</span>
+                                </div>
+                                <h3 class="explore-title">European Panorama</h3>
+                                <p class="explore-description">Experience the diversity of Europe with visits to iconic landmarks and cultural treasures.</p>
+                                <div class="explore-features">
+                                    <span class="explore-feature-badge">🏨 Premium Hotels</span>
+                                    <span class="explore-feature-badge">🍽️ Local Cuisine</span>
+                                </div>
+                                <div class="explore-details">
+                                    <div class="explore-detail-row">
+                                        <span class="detail-label">Duration</span>
+                                        <span class="detail-value">8 Days</span>
+                                        <span class="detail-label">Countries</span>
+                                        <span class="detail-value">8</span>
+                                        <span class="detail-label">Cities</span>
+                                        <span class="detail-value">12</span>
+                                    </div>
+                                </div>
+                                <div class="explore-actions">
+                                    <a href="#contact" class="explore-btn explore-btn-outline">View Details</a>
+                                    <a href="#contact" class="explore-btn explore-btn-primary">Enquire Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Asia Destinations -->
+                        <div class="explore-card" data-region="asia">
+                            <div class="explore-badge">TROPICAL</div>
+                            <div class="explore-image-container">
+                                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&h=200&fit=crop" alt="Australia & New Zealand" class="explore-image">
+                                <div class="explore-wishlist">♡</div>
+                            </div>
+                            <div class="explore-content">
+                                <div class="explore-rating">
+                                    <span class="explore-stars">★★★★★</span>
+                                    <span class="explore-reviews">85 Reviews</span>
+                                </div>
+                                <h3 class="explore-title">Australia & New Zealand Explorer</h3>
+                                <p class="explore-description">Experience the stunning landscapes, unique wildlife, and vibrant cities of Oceania.</p>
+                                <div class="explore-features">
+                                    <span class="explore-feature-badge">🦘 Wildlife Tours</span>
+                                    <span class="explore-feature-badge">🏔️ Adventure</span>
+                                </div>
+                                <div class="explore-details">
+                                    <div class="explore-detail-row">
+                                        <span class="detail-label">Duration</span>
+                                        <span class="detail-value">12 Days</span>
+                                        <span class="detail-label">Countries</span>
+                                        <span class="detail-value">2</span>
+                                        <span class="detail-label">Cities</span>
+                                        <span class="detail-value">6</span>
+                                    </div>
+                                </div>
+                                <div class="explore-actions">
+                                    <a href="#contact" class="explore-btn explore-btn-outline">View Details</a>
+                                    <a href="#contact" class="explore-btn explore-btn-primary">Enquire Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Japan Destinations -->
+                        <div class="explore-card" data-region="japan">
+                            <div class="explore-badge">CULTURAL</div>
+                            <div class="explore-image-container">
+                                <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&h=200&fit=crop" alt="Japan Discovery" class="explore-image">
+                                <div class="explore-wishlist">♡</div>
+                            </div>
+                            <div class="explore-content">
+                                <div class="explore-rating">
+                                    <span class="explore-stars">★★★★★</span>
+                                    <span class="explore-reviews">72 Reviews</span>
+                                </div>
+                                <h3 class="explore-title">Japan Discovery</h3>
+                                <p class="explore-description">Immerse yourself in ancient traditions, modern innovations, and breathtaking cherry blossoms.</p>
+                                <div class="explore-features">
+                                    <span class="explore-feature-badge">🌸 Cherry Blossoms</span>
+                                    <span class="explore-feature-badge">🏯 Traditional Culture</span>
+                                </div>
+                                <div class="explore-details">
+                                    <div class="explore-detail-row">
+                                        <span class="detail-label">Duration</span>
+                                        <span class="detail-value">9 Days</span>
+                                        <span class="detail-label">Countries</span>
+                                        <span class="detail-value">1</span>
+                                        <span class="detail-label">Cities</span>
+                                        <span class="detail-value">5</span>
+                                    </div>
+                                </div>
+                                <div class="explore-actions">
+                                    <a href="#contact" class="explore-btn explore-btn-outline">View Details</a>
+                                    <a href="#contact" class="explore-btn explore-btn-primary">Enquire Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="explore-nav explore-next" onclick="scrollExploreCards(1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Destinations Section -->
+    <section class="section section-alt" id="trending">
+        <div class="container">
+            <h2 class="section-title">Trending Destinations</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #6c757d; margin-bottom: 40px;">
+                Most popular destinations our travelers are choosing this season
+            </p>
+            
+            <div class="trending-slider-container">
+                <div class="trending-slider" id="trendingSlider">
+                    <div class="trending-slide" style="background-image: url('https://images.unsplash.com/photo-1520637836862-4d197d17c55a?w=1200&h=600&fit=crop')">
+                        <div class="trending-slide-content">
+                            <h3>Paris with Disneyland</h3>
+                            <p>Seine river cruise, Eiffel Tower 2nd level, Louvre Museum, Montparnasse tower & more</p>
+                            <p><strong>6 Days | Complete Experience</strong></p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn btn-primary">Enquire Now</a>
+                                <a href="#contact" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-slide" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=1200&h=600&fit=crop')">
+                        <div class="trending-slide-content">
+                            <h3>Dubai Desert Safari</h3>
+                            <p>Burj Khalifa, Dubai Mall, Desert Safari with BBQ, Marina Dhow Cruise & Shopping</p>
+                            <p><strong>5 Days | Luxury Experience</strong></p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn btn-primary">Enquire Now</a>
+                                <a href="#contact" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-slide" style="background-image: url('https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=1200&h=600&fit=crop')">
+                        <div class="trending-slide-content">
+                            <h3>Maldives Paradise</h3>
+                            <p>Overwater bungalows, snorkeling, sunset cruises, spa treatments & pristine beaches</p>
+                            <p><strong>7 Days | Honeymoon Special</strong></p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn btn-primary">Enquire Now</a>
+                                <a href="#contact" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-slide" style="background-image: url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1200&h=600&fit=crop')">
+                        <div class="trending-slide-content">
+                            <h3>Thailand Island Hopping</h3>
+                            <p>Bangkok temples, Phuket beaches, Phi Phi Islands, James Bond Island & local markets</p>
+                            <p><strong>8 Days | Adventure Package</strong></p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn btn-primary">Enquire Now</a>
+                                <a href="#contact" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="trending-slider-nav trending-prev" onclick="changeTrendingSlide(-1)">‹</button>
+                <button class="trending-slider-nav trending-next" onclick="changeTrendingSlide(1)">›</button>
+                
+                <div class="trending-slider-dots">
+                    <span class="trending-dot active" onclick="currentTrendingSlide(1)"></span>
+                    <span class="trending-dot" onclick="currentTrendingSlide(2)"></span>
+                    <span class="trending-dot" onclick="currentTrendingSlide(3)"></span>
+                    <span class="trending-dot" onclick="currentTrendingSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Complete Travel Services</h2>
+            
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="showTab('visa', this)">Visa Services</button>
+                <button class="tab-button" onclick="showTab('domestic', this)">Domestic Tours</button>
+                <button class="tab-button" onclick="showTab('international', this)">International Tours</button>
+                <button class="tab-button" onclick="showTab('flights', this)">Flights</button>
+                <button class="tab-button" onclick="showTab('cruises', this)">Cruises</button>
+            </div>
+
+            <!-- Visa Services Tab -->
+            <div id="visa" class="tab-content active">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Complete Visa Services for 150+ Countries</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1596740740823-c559addf0fb8?w=400&h=200&fit=crop" alt="USA Visa Services" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🇺🇸 United States (USA)</h4>
+                                <p>Tourist/Business B1/B2</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Processing Time:</strong> 15-30 working days</p>
+                            <p><strong>Validity:</strong> 10 years (multiple entry)</p>
+                            <p><strong>Interview:</strong> Required</p>
+                            <p><strong>Visa Fee:</strong> ₹14,000 + Service Charges</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need help with USA visa application" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=200&fit=crop" alt="UK Visa Services" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🇬🇧 United Kingdom (UK)</h4>
+                                <p>Standard Visitor Visa</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Processing Time:</strong> 15-20 working days</p>
+                            <p><strong>Validity:</strong> 6 months to 10 years</p>
+                            <p><strong>Interview:</strong> Usually not required</p>
+                            <p><strong>Visa Fee:</strong> ₹8,500 + Service Charges</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need help with UK visa application" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=200&fit=crop" alt="Dubai Visa Services" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🇦🇪 UAE (Dubai)</h4>
+                                <p>Tourist eVisa</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Processing Time:</strong> 3-5 working days</p>
+                            <p><strong>Validity:</strong> 30 days (single/multiple entry)</p>
+                            <p><strong>Interview:</strong> Not required</p>
+                            <p><strong>Visa Fee:</strong> ₹3,500 + Service Charges</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need help with Dubai visa application" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domestic Tours Tab -->
+            <div id="domestic" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Discover Incredible India</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Goa Beach Paradise" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🏖️ Goa Beach Paradise</h4>
+                                <p>4 Days / 3 Nights</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Duration:</strong> 4 days</p>
+                            <p><strong>Includes:</strong> Hotels, meals, transfers</p>
+                            <p><strong>Highlights:</strong> Beaches, water sports, local cuisine</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Goa packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Kashmir Valley" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🏔️ Kashmir Valley</h4>
+                                <p>6 Days / 5 Nights</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Duration:</strong> 6 days</p>
+                            <p><strong>Includes:</strong> Houseboats, shikara rides, sightseeing</p>
+                            <p><strong>Highlights:</strong> Dal Lake, Mughal Gardens, snow activities</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Kashmir packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=200&fit=crop" alt="Golden Triangle" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🕌 Golden Triangle</h4>
+                                <p>7 Days / 6 Nights</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Duration:</strong> 7 days</p>
+                            <p><strong>Includes:</strong> Delhi, Agra, Jaipur with guide</p>
+                            <p><strong>Highlights:</strong> Taj Mahal, Red Fort, City Palace</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Golden Triangle packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Tours Tab -->
+            <div id="international" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Explore the World</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=200&fit=crop" alt="Europe Grand Tour" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🗼 Europe Grand Tour</h4>
+                                <p>12 Days Multi-Country</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Countries:</strong> 8-10 European countries</p>
+                            <p><strong>Includes:</strong> Flights, hotels, meals, transfers, visa</p>
+                            <p><strong>Highlights:</strong> Paris, Rome, Switzerland, Amsterdam</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Europe packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=200&fit=crop" alt="Dubai & Singapore" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🏝️ Dubai & Singapore</h4>
+                                <p>7 Days Twin City</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Duration:</strong> 7 days (3+4 nights)</p>
+                            <p><strong>Includes:</strong> Desert safari, city tours, Universal Studios</p>
+                            <p><strong>Highlights:</strong> Burj Khalifa, Marina Bay, shopping</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Dubai Singapore packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Thailand Special" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🇹🇭 Thailand Special</h4>
+                                <p>6 Days / 5 Nights</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Destinations:</strong> Bangkok, Pattaya, Phuket</p>
+                            <p><strong>Includes:</strong> Island tours, cultural shows, shopping</p>
+                            <p><strong>Highlights:</strong> Coral Island, floating market, temples</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Thailand packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flights Tab -->
+            <div id="flights" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Flight Booking Services</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=200&fit=crop" alt="Domestic Flights" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>✈️ Domestic Flights</h4>
+                                <p>All Indian Airlines</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Airlines:</strong> IndiGo, SpiceJet, Air India, Vistara</p>
+                            <p><strong>Benefits:</strong> Best prices, instant booking, 24/7 support</p>
+                            <p><strong>Special:</strong> Group booking discounts available</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need help with domestic flight booking" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop" alt="International Flights" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🌐 International Flights</h4>
+                                <p>Worldwide Destinations</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Airlines:</strong> Emirates, Qatar, Singapore, Lufthansa</p>
+                            <p><strong>Benefits:</strong> Competitive rates, flexible dates, seat selection</p>
+                            <p><strong>Special:</strong> Honeymoon and family packages</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need help with international flight booking" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=200&fit=crop" alt="Travel Insurance" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🎫 Travel Insurance</h4>
+                                <p>Complete Protection</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Coverage:</strong> Medical, baggage, trip cancellation</p>
+                            <p><strong>Benefits:</strong> Worldwide coverage, instant policy</p>
+                            <p><strong>Special:</strong> Family and senior citizen plans</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I need travel insurance information" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cruises Tab -->
+            <div id="cruises" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Luxury Cruise Experiences</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=200&fit=crop" alt="Mediterranean Cruise" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🚢 Mediterranean Cruise</h4>
+                                <p>7 Nights / 8 Days</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Route:</strong> Rome, Barcelona, French Riviera</p>
+                            <p><strong>Includes:</strong> All meals, entertainment, shore excursions</p>
+                            <p><strong>Ship:</strong> Royal Caribbean, MSC, Costa</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Mediterranean cruise packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop" alt="Caribbean Cruise" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🌊 Caribbean Cruise</h4>
+                                <p>10 Nights / 11 Days</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Route:</strong> Miami, Bahamas, Jamaica, Mexico</p>
+                            <p><strong>Includes:</strong> Water parks, casinos, shows, dining</p>
+                            <p><strong>Ship:</strong> Norwegian, Carnival, Royal Caribbean</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Caribbean cruise packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <img src="https://images.unsplash.com/photo-1444927714506-8492d94b5ba0?w=400&h=200&fit=crop" alt="Alaska Cruise" class="service-header-image">
+                            <div class="service-header-overlay">
+                                <h4>🏔️ Alaska Cruise</h4>
+                                <p>7 Nights / 8 Days</p>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <p><strong>Route:</strong> Seattle, Glacier Bay, Juneau, Ketchikan</p>
+                            <p><strong>Includes:</strong> Wildlife viewing, glaciers, scenic routes</p>
+                            <p><strong>Ship:</strong> Princess, Holland America, Celebrity</p>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/917066630228?text=Hi, I want to know about Alaska cruise packages" class="whatsapp-btn">💬 WhatsApp</a>
+                                <a href="#contact" class="callback-btn">📞 Request Callback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-main" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-company">
+                    <div class="footer-logo">
+                        <img src="images/bns-logo.png" alt="BNS Holidays Logo" onerror="this.style.display='none'">
+                        <div class="footer-logo-text">
+                            <h3>BNS HOLIDAYS</h3>
+                            <p>Where Every Journey Begins with a Smile</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        BNS Holidays is your trusted travel partner, specializing in creating unforgettable travel experiences. 
+                        With over 3 years of expertise and 1000+ happy clients, we offer comprehensive travel solutions including 
+                        visa services, tour packages, flight bookings, and cruise experiences.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Visa Services</a></li>
+                        <li><a href="#services">International Tours</a></li>
+                        <li><a href="#services">Domestic Packages</a></li>
+                        <li><a href="#services">Flight Booking</a></li>
+                        <li><a href="#services">Cruise Packages</a></li>
+                        <li><a href="#services">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Popular Destinations</h4>
+                    <ul>
+                        <li><a href="#services">Europe Tours</a></li>
+                        <li><a href="#services">Dubai Packages</a></li>
+                        <li><a href="#services">Thailand Special</a></li>
+                        <li><a href="#services">Singapore Tours</a></li>
+                        <li><a href="#services">Maldives Honeymoon</a></li>
+                        <li><a href="#services">Kashmir Valley</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <a href="tel:+917066630228">+91 7066630228</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:bnsholidays@bnsholidays.co.in">bnsholidays@bnsholidays.co.in</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:feedback@bnsholidays.co.in">feedback@bnsholidays.co.in</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>New Sangvi, Pune</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link social-facebook">f</a>
+                        <a href="#" class="social-link social-youtube">▶</a>
+                        <a href="#" class="social-link social-linkedin">in</a>
+                        <a href="#" class="social-link social-instagram">📷</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-address">
+                <h5>Our Complete Address</h5>
+                <p><strong>BNS Holidays</strong></p>
+                <p>Office No 7, Sai Saiee Apartment</p>
+                <p>New Sangvi, Pune - 411027</p>
+                <p>Maharashtra, India</p>
+                <p><strong>Business Hours:</strong> Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                <p><strong>Emergency Contact:</strong> +91 7066630228 (Available 24/7)</p>
+            </div>
+
+            <div class="footer-disclaimer">
+                <h5>Travel Advisory</h5>
+                <p>
+                    All prices are subject to availability and may change without notice. Visa processing times may vary based on embassy requirements. 
+                    Travel insurance is recommended for all international trips. Terms and conditions apply. BNS Holidays is not responsible for any 
+                    changes in government policies, flight cancellations, or force majeure events.
+                </p>
+            </div>
+
+            <div class="footer-bottom-section">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 BNS Holidays. All rights reserved.</p>
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cancellation Policy</a>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="payment-security">
+                    <span>Secure Payments</span>
+                    <div class="security-badge">SSL</div>
+                </div>
+            </div>
+
+            <div class="bottom-banner">
+                <p>
+                    <span class="breaking-news">BREAKING:</span> 
+                    Limited Time Offer! Get <strong>15% OFF</strong> on all international packages. 
+                    <a href="#contact">Book Now</a> or Call <strong>+91 7066630228</strong>
+                </p>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        // Contact Popup Functions
+        function openContactPopup() {
+            document.getElementById('contactPopupOverlay').classList.add('show');
+        }
+
+        function closeContactPopup() {
+            document.getElementById('contactPopupOverlay').classList.remove('show');
+        }
+
+        // Search Functionality
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                alert('Searching for: ' + query + '\nPlease contact us for detailed information!');
+            }
+        }
+
+        // Explore Cards Functionality
+        let exploreCurrentIndex = 0;
+        const exploreCardsToShow = 3;
+
+        function scrollExploreCards(direction) {
+            const cards = document.querySelectorAll('.explore-card:not([style*="display: none"])');
+            const maxIndex = Math.max(0, cards.length - exploreCardsToShow);
+            
+            exploreCurrentIndex += direction;
+            exploreCurrentIndex = Math.max(0, Math.min(exploreCurrentIndex, maxIndex));
+            
+            const translateX = -exploreCurrentIndex * (320 + 25); // card width + gap
+            document.querySelector('.explore-cards').style.transform = `translateX(${translateX}px)`;
+        }
+
+        function filterExploreRegion(region) {
+            // Update active tab
+            document.querySelectorAll('.region-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide cards based on region
+            document.querySelectorAll('.explore-card').forEach(card => {
+                if (region === 'all' || card.dataset.region === region) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Reset scroll position
+            exploreCurrentIndex = 0;
+            document.querySelector('.explore-cards').style.transform = 'translateX(0px)';
+        }
+
+        // Trending Slider Functionality
+        let trendingSlideIndex = 0;
+        const trendingSlides = document.querySelectorAll('.trending-slide');
+        const trendingDots = document.querySelectorAll('.trending-dot');
+
+        function showTrendingSlide(index) {
+            trendingSlideIndex = index;
+            if (trendingSlideIndex >= trendingSlides.length) trendingSlideIndex = 0;
+            if (trendingSlideIndex < 0) trendingSlideIndex = trendingSlides.length - 1;
+            
+            const translateX = -trendingSlideIndex * 100;
+            document.getElementById('trendingSlider').style.transform = `translateX(${translateX}%)`;
+            
+            trendingDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === trendingSlideIndex);
+            });
+        }
+
+        function changeTrendingSlide(direction) {
+            showTrendingSlide(trendingSlideIndex + direction);
+        }
+
+        function currentTrendingSlide(index) {
+            showTrendingSlide(index - 1);
+        }
+
+        // Auto-advance trending slider
+        setInterval(() => {
+            changeTrendingSlide(1);
+        }, 5000);
+
+        // Services Tab Functionality
+        function showTab(tabName, button) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show Europe destinations by default
+            filterExploreRegion('europe');
+            
+            // Show visa services tab by default
+            const firstTabButton = document.querySelector('.tab-button');
+            if (firstTabButton) {
+                showTab('visa', firstTabButton);
+            }
+        });
+    </script>
+</body>
+</html>
